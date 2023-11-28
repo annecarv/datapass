@@ -1,12 +1,16 @@
 package com.datapass.datapass.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +27,11 @@ public class User implements Serializable {
 	private String firstname;
 	private String email;
 	private String password;
+	@Column(columnDefinition="TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+	
+	@Column(columnDefinition="TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updatedAt;
 	
 	public User() {
 		
@@ -37,9 +46,6 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	
-	
-	
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -58,7 +64,16 @@ public class User implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updatedAt = Instant.now();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -83,8 +98,15 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
+
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+
+	public Instant getUpdatedAt() {
+		return updatedAt;
+	}
+
+		
 }
