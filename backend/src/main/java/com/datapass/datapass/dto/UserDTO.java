@@ -10,7 +10,7 @@ import com.datapass.datapass.entities.User;
 
 public class UserDTO  implements Serializable {
 	/**
-	 * 
+	 * O DTO É UM OBJETO PARA TRAFEGAR DADOS
 	 */
 	private static final long serialVersionUID = 1L;
 	
