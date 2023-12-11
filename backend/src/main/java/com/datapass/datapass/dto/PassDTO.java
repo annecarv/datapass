@@ -5,17 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.datapass.datapass.entities.Folder;
 import com.datapass.datapass.entities.Pass;
 
-@Entity
-@Table(name = "T_PASS")
 public class PassDTO implements Serializable {
 	/**
 	 * 
@@ -31,6 +26,10 @@ public class PassDTO implements Serializable {
 	private String pass;
 
 	private List<FolderDTO> folder = new ArrayList<>();
+	
+	public PassDTO() {
+		
+	}
 	
 	//Não se deve colocar a lista de folder aqui, pois nao colocamos coleção em construtores
 	public PassDTO(Long id, String name, String url, String login, String pass) {

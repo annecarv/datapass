@@ -1,6 +1,10 @@
 package com.datapass.datapass.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "T_PASS")
 public class Pass {
 	
 	private Long id;
@@ -10,9 +14,6 @@ public class Pass {
 	private String pass;
 	//Folder folder;
 	
-	public void Pass() {
-		
-	}
 
 	public Pass(Long id, String name, String url, String login, String pass) {
 		super();

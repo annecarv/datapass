@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Repository;
+
 import com.datapass.datapass.entities.User;
 
-public class UserDTO  implements Serializable {
+public class UserDTO implements Serializable {
 	/**
 	 * O DTO É UM OBJETO PARA TRAFEGAR DADOS
 	 */

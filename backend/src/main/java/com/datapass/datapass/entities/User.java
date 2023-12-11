@@ -27,6 +27,7 @@ public class User implements Serializable {
 	private String firstname;
 	private String email;
 	private String password;
+	
 	@Column(columnDefinition="TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
 	
@@ -36,7 +37,6 @@ public class User implements Serializable {
 	public User() {
 		
 	}
-	
 	
 	public User(Long id, String firstname, String email, String password) {
 		super();
