@@ -1,19 +1,11 @@
 package com.datapass.datapass.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import com.datapass.datapass.entities.User;
 
-public class UserDTO  implements Serializable {
+public class UserDTO {
 	/**
 	 * O DTO É UM OBJETO PARA TRAFEGAR DADOS
 	 */
-	private static final long serialVersionUID = 1L;
-	
 
 	private Long id;
 	private String firstname;

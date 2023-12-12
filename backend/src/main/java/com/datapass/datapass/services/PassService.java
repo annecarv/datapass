@@ -40,7 +40,10 @@ public class PassService {
 	@Transactional
 	public PassDTO insert(PassDTO dto) {
 		Pass entity = new Pass();
-		//entity.setName(dto.getName());
+		entity.setName(dto.getName());
+		entity.setUrl(dto.getUrl());
+		entity.setLogin(dto.getLogin());
+		entity.setPass(dto.getPass());
 		entity = repository.save(entity);
 		return new PassDTO(entity);
 	}
@@ -50,11 +53,11 @@ public class PassService {
 	public PassDTO update(Long id, PassDTO dto) {
 		try {
 		Pass entity = repository.getOne(id);
-		//entity.setName(dto.getName());
-		//entity.setUrl(dto.getUrl());
-		//entity.setLogin(dto.getLogin());
-		//entity.setPass(dto.getPass());
-		//entity = repository.save(entity);
+		entity.setName(dto.getName());
+		entity.setUrl(dto.getUrl());
+		entity.setLogin(dto.getLogin());
+		entity.setPass(dto.getPass());
+		entity = repository.save(entity);
 		return new PassDTO(entity);
 		} 
 		catch (EntityNotFoundException e) {
